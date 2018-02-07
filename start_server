@@ -1,0 +1,1 @@
+java -Xmx2G -Xms128M -jar spigot.jar
