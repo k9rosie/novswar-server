@@ -1,0 +1,10 @@
+stats/
+advancements/
+playerdata/
+sessions/
+*.sqlite
+logs/
+whitelist.json
+*.csv
+*.db
+
