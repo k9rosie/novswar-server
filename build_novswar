@@ -1,0 +1,30 @@
+#!/bin/bash
+
+NOVSWAR=novswar/
+NOVSLOADOUT=novsloadout/
+TEAMDEATHMATCH=teamdeathmatch/
+
+mkdir -p src; 
+cd src;
+
+if [ ! -d "$NOVSWAR" ]; then
+	git clone https://github.com/k9rosie/novswar.git
+fi
+
+if [ ! -d "$NOVSLOADOUT" ]; then
+	git clone https://github.com/k9rosie/novsloadout.git
+fi
+
+if [ ! -d "$TEAMDEATHMATCH" ]; then
+	git clone https://github.com/k9rosie/teamdeathmatch.git
+fi
+
+cd novswar;
+git pull;
+./gradlew clean build jar;
+cd ../novsloadout;
+git pull;
+./gradlew clean build jar;
+cd ../teamdeathmatch;
+git pull;
+./gradlew clean build jar;

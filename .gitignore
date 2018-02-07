@@ -1,3 +1,9 @@
+session.lock
+banned-ips.json
+banned-players.json
+usercache.json
+ops.json
+src/
 stats/
 advancements/
 playerdata/
