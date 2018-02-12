@@ -1,6 +1,4 @@
 #!/bin/bash
-PROJECT_DIR=$(git rev-parse --show-toplevel);
-
 function check {
 	if [ -z ${DB_DRIVER+x} ]; then echo "DB_DRIVER isn't set in the environment variables"; exit 1; fi
 	if [ -z ${DB_HOSTNAME+x} ]; then echo "DB_HOSTNAME isn't set in the environment variables"; exit 1; fi
@@ -12,26 +10,26 @@ function check {
 
 function default {
 	# LuckPerms
-	sed -i -e "s/storage-method: .*/$(echo storage-method: h2)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-	sed -i -e "s/address: .*/$(echo address: localhost)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-	sed -i -e "s/database: .*/$(echo database: minecraft)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-	sed -i -e "s/username: .*/$(echo username: root)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-	sed -i -e "s/password: .*/$(echo password: '')/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
+	sed -i -e "s/storage-method: .*/$(echo storage-method: h2)/g" plugins/LuckPerms/config.yml;
+	sed -i -e "s/address: .*/$(echo address: localhost)/g" plugins/LuckPerms/config.yml;
+	sed -i -e "s/database: .*/$(echo database: minecraft)/g" plugins/LuckPerms/config.yml;
+	sed -i -e "s/username: .*/$(echo username: root)/g" plugins/LuckPerms/config.yml;
+	sed -i -e "s/password: .*/$(echo password: '')/g" plugins/LuckPerms/config.yml;
 
 	# Novswar
-	sed -i -e "s/connector: .*/$(echo connector: sqlite)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-	sed -i -e "s/hostname: .*/$(echo hostname: localhost)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-	sed -i -e "s/port: .*/$(echo port: 3306)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-	sed -i -e "s/database: .*/$(echo database: example_database)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-	sed -i -e "s/username: .*/$(echo username: example_user)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-	sed -i -e "s/password: .*/$(echo password: example_password)/g" $PROJECT_DIR/plugins/novswar/core.yml;
+	sed -i -e "s/connector: .*/$(echo connector: sqlite)/g" plugins/novswar/core.yml;
+	sed -i -e "s/hostname: .*/$(echo hostname: localhost)/g" plugins/novswar/core.yml;
+	sed -i -e "s/port: .*/$(echo port: 3306)/g" plugins/novswar/core.yml;
+	sed -i -e "s/database: .*/$(echo database: example_database)/g" plugins/novswar/core.yml;
+	sed -i -e "s/username: .*/$(echo username: example_user)/g" plugins/novswar/core.yml;
+	sed -i -e "s/password: .*/$(echo password: example_password)/g" plugins/novswar/core.yml;
 
 	# WorldGuard
-	sed -i -e "s/use: .*/$(echo use: false)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-	sed -i -e "s@dsn: .*@$(echo dsn: jdbc:mysql://localhost/worldguard)@g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-	sed -i -e "s/username: .*/$(echo username: worldguard)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-	sed -i -e "s/password: .*/$(echo password: worldguard)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-	sed -i -e "s/table-prefix: .*/$(echo table-prefix: '')/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
+	sed -i -e "s/use: .*/$(echo use: false)/g" plugins/WorldGuard/config.yml;
+	sed -i -e "s@dsn: .*@$(echo dsn: jdbc:mysql://localhost/worldguard)@g" plugins/WorldGuard/config.yml;
+	sed -i -e "s/username: .*/$(echo username: worldguard)/g" plugins/WorldGuard/config.yml;
+	sed -i -e "s/password: .*/$(echo password: worldguard)/g" plugins/WorldGuard/config.yml;
+	sed -i -e "s/table-prefix: .*/$(echo table-prefix: '')/g" plugins/WorldGuard/config.yml;
 	exit 0;
 }
 
@@ -43,23 +41,23 @@ if [ "$1" == "revert" ]; then
 fi
 
 # LuckPerms
-sed -i -e "s/storage-method: .*/$(echo storage-method: $DB_DRIVER)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-sed -i -e "s/address: .*/$(echo address: $DB_HOSTNAME:$DB_PORT)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-sed -i -e "s/database: .*/$(echo database: $DB_DATABASE)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-sed -i -e "s/username: .*/$(echo username: $DB_USERNAME)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
-sed -i -e "s/password: .*/$(echo password: $DB_PASSWORD)/g" $PROJECT_DIR/plugins/LuckPerms/config.yml;
+sed -i -e "s/storage-method: .*/$(echo storage-method: $DB_DRIVER)/g" plugins/LuckPerms/config.yml;
+sed -i -e "s/address: .*/$(echo address: $DB_HOSTNAME:$DB_PORT)/g" plugins/LuckPerms/config.yml;
+sed -i -e "s/database: .*/$(echo database: $DB_DATABASE)/g" plugins/LuckPerms/config.yml;
+sed -i -e "s/username: .*/$(echo username: $DB_USERNAME)/g" plugins/LuckPerms/config.yml;
+sed -i -e "s/password: .*/$(echo password: $DB_PASSWORD)/g" plugins/LuckPerms/config.yml;
 
 # Novswar
-sed -i -e "s/connector: .*/$(echo connector: $DB_DRIVER)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-sed -i -e "s/hostname: .*/$(echo hostname: $DB_HOSTNAME)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-sed -i -e "s/port: .*/$(echo port: $DB_PORT)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-sed -i -e "s/database: .*/$(echo database: $DB_DATABASE)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-sed -i -e "s/username: .*/$(echo username: $DB_USERNAME)/g" $PROJECT_DIR/plugins/novswar/core.yml;
-sed -i -e "s/password: .*/$(echo password: $DB_PASSWORD)/g" $PROJECT_DIR/plugins/novswar/core.yml;
+sed -i -e "s/connector: .*/$(echo connector: $DB_DRIVER)/g" plugins/novswar/core.yml;
+sed -i -e "s/hostname: .*/$(echo hostname: $DB_HOSTNAME)/g" plugins/novswar/core.yml;
+sed -i -e "s/port: .*/$(echo port: $DB_PORT)/g" plugins/novswar/core.yml;
+sed -i -e "s/database: .*/$(echo database: $DB_DATABASE)/g" plugins/novswar/core.yml;
+sed -i -e "s/username: .*/$(echo username: $DB_USERNAME)/g" plugins/novswar/core.yml;
+sed -i -e "s/password: .*/$(echo password: $DB_PASSWORD)/g" plugins/novswar/core.yml;
 
 # WorldGuard
-sed -i -e "s/use: false/$(echo use: true)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-sed -i -e "s@dsn: .*@$(echo dsn: jdbc:$DB_DRIVER://$DB_HOSTNAME:$DB_PORT/$DB_DATABASE)@g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-sed -i -e "s/username: .*/$(echo username: $DB_USERNAME)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-sed -i -e "s/password: .*/$(echo password: $DB_PASSWORD)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
-sed -i -e "s/table-prefix: .*/$(echo table-prefix: wg_)/g" $PROJECT_DIR/plugins/WorldGuard/config.yml;
+sed -i -e "s/use: false/$(echo use: true)/g" plugins/WorldGuard/config.yml;
+sed -i -e "s@dsn: .*@$(echo dsn: jdbc:$DB_DRIVER://$DB_HOSTNAME:$DB_PORT/$DB_DATABASE)@g" plugins/WorldGuard/config.yml;
+sed -i -e "s/username: .*/$(echo username: $DB_USERNAME)/g" plugins/WorldGuard/config.yml;
+sed -i -e "s/password: .*/$(echo password: $DB_PASSWORD)/g" plugins/WorldGuard/config.yml;
+sed -i -e "s/table-prefix: .*/$(echo table-prefix: wg_)/g" plugins/WorldGuard/config.yml;
