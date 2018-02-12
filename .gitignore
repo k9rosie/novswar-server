@@ -13,4 +13,7 @@ logs/
 whitelist.json
 *.csv
 *.db
-
+bans.*.log
+scoreboard.dat
+bStats/
+PluginMetrics/

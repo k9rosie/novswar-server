@@ -25,11 +25,11 @@ regions:
         keep-names-that-lack-uuids: true
     use-creature-spawn-event: true
     sql:
-        use: false
-        dsn: jdbc:mysql://localhost/worldguard
-        username: worldguard
-        password: worldguard
-        table-prefix: 
+        use: true
+        dsn: jdbc:mysql://localhost:3306/minecraft
+        username: minecraft
+        password: minecraft
+        table-prefix: wg_
     enable: true
     invincibility-removes-mobs: false
     nether-portal-protection: false
@@ -59,7 +59,7 @@ build-permission-nodes:
     enable: false
     deny-message: '&eSorry, but you are not permitted to do that here.'
 event-handling:
-    block-entity-spawns-with-untraceable-cause: false
+    block-entity-spawns-with-untraceable-cause: true
     interaction-whitelist: []
     emit-block-use-at-feet: []
     ignore-hopper-item-move-events: false
@@ -165,7 +165,7 @@ blacklist:
             enable: true
         database:
             enable: false
-            dsn: jdbc:mysql://localhost/worldguard
+            dsn: jdbc:mysql://localhost:3306/minecraft
             user: root
             pass: ''
             table: blacklist_events

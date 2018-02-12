@@ -22,9 +22,11 @@ fi
 cd novswar;
 git pull;
 ./gradlew clean build jar;
-cd ../novsloadout;
-git pull;
-./gradlew clean build jar;
-cd ../teamdeathmatch;
-git pull;
-./gradlew clean build jar;
+cp build/libs/novswar-1.0.0-SNAPSHOT.jar ../../plugins/;
+
+#cd ../novsloadout;
+#git pull;
+#./gradlew clean build jar;
+#cd ../teamdeathmatch;
+#git pull;
+#./gradlew clean build jar;

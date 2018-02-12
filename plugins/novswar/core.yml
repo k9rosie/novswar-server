@@ -1,25 +1,24 @@
 # core novswar settings
 core:
   database:
-    connector: sqlite
+    connector: mysql
     path: plugins/novswar/novswar.db
     prefix: nw_
     flush_interval: 60
     mysql:
       hostname: localhost
       port: 3306
-      database: example_database
-      username: example_user
-      password: example_password
+      database: minecraft
+      username: minecraft
+      password: minecraft
   world:
     enabled_worlds:
-    - world_nether
-    - world_the_end
-    lobby_world: world
+    - tdm_flatgrass
+    lobby_world: lobby
   voting:
     enabled: true
   game:
-    minimum_players: 3
+    minimum_players: 1
     largest_team_imbalance: 4
     rebalance_warning_timer: 5
     join_in_progress: false

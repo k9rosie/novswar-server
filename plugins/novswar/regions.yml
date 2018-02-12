@@ -1,6 +1,67 @@
 # YAML file that stores the different regions in the worlds
 # it's not recommended that you edit this file unless you are sure on what you are doing
 regions:
-- world: world_the_end
-- world: world
-- world: world_nether
+- world: lobby
+- cuboids:
+  - corner_two_y: 0.0
+    corner_two_z: 8.0
+    corner_one_x: 12.0
+    corner_one_z: 10.0
+    corner_one_y: 3.0
+    corner_two_x: 9.0
+    name: blue_death_region
+    type: DEATH_REGION
+  - corner_two_y: 4.0
+    corner_two_z: 16.0
+    corner_one_x: -1.0
+    corner_one_z: 16.0
+    corner_one_y: 6.0
+    corner_two_x: 1.0
+    name: blue_gate
+    type: INTERMISSION_GATE
+  - corner_two_y: 12.0
+    corner_two_z: 21.0
+    corner_one_x: -5.0
+    corner_one_z: 16.0
+    corner_one_y: 4.0
+    corner_two_x: 5.0
+    name: blue_spawn
+    type: TEAM_SPAWN
+  - corner_two_y: 0.0
+    corner_two_z: -10.0
+    corner_one_x: -11.0
+    corner_one_z: -7.0
+    corner_one_y: 3.0
+    corner_two_x: -13.0
+    name: red_death_region
+    type: DEATH_REGION
+  - corner_two_y: 4.0
+    corner_two_z: -16.0
+    corner_one_x: 1.0
+    corner_one_z: -16.0
+    corner_one_y: 6.0
+    corner_two_x: -1.0
+    name: red_gate
+    type: INTERMISSION_GATE
+  - corner_two_y: 4.0
+    corner_two_z: -16.0
+    corner_one_x: -5.0
+    corner_one_z: -21.0
+    corner_one_y: 12.0
+    corner_two_x: 5.0
+    name: red_spawn
+    type: TEAM_SPAWN
+  world: tdm_flatgrass
+  spawns:
+  - x: 0.5214899913734106
+    y: 4.0
+    z: -18.470060027096462
+    team: Red
+    pitch: 0.9986822
+    yaw: 359.93652
+  - x: 0.4723252753465734
+    y: 4.0
+    z: 19.44147506548971
+    team: Blue
+    pitch: -1.1117831
+    yaw: 178.31067
