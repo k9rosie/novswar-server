@@ -1,0 +1,49 @@
+# core novswar settings
+core:
+  database:
+    connector: sqlite
+    path: plugins/novswar/novswar.db
+    prefix: nw_
+    flush_interval: 60
+    mysql:
+      hostname: localhost
+      port: 3306
+      database: example_database
+      username: example_user
+      password: example_password
+  world:
+    enabled_worlds:
+    - world_nether
+    - world_the_end
+    lobby_world: world
+  voting:
+    enabled: true
+  game:
+    minimum_players: 3
+    largest_team_imbalance: 4
+    rebalance_warning_timer: 5
+    join_in_progress: false
+    pre_game_timer: 120
+    post_game_timer: 120
+    respawn_timer: 5
+    enable_hunger: false
+    fast_health_regen: false
+    assist_timer: 5
+  effects:
+    death:
+      particle:
+        type: SMOKE_NORMAL
+        count: 10
+      sound:
+        type: ENTITY_VILLAGER_DEATH
+        volume: 1
+        pitch: 1
+    respawn:
+      particle:
+        type: VILLAGER_HAPPY
+        count: 50
+      sound:
+        type: ENTITY_PLAYER_LEVELUP
+        volume: 1
+        pitch: 1
+  debug: true

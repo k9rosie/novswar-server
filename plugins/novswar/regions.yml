@@ -1,0 +1,6 @@
+# YAML file that stores the different regions in the worlds
+# it's not recommended that you edit this file unless you are sure on what you are doing
+regions:
+- world: world_the_end
+- world: world
+- world: world_nether

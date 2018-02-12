@@ -29,7 +29,7 @@ regions:
         dsn: jdbc:mysql://localhost/worldguard
         username: worldguard
         password: worldguard
-        table-prefix: ''
+        table-prefix: 
     enable: true
     invincibility-removes-mobs: false
     nether-portal-protection: false
@@ -165,7 +165,7 @@ blacklist:
             enable: true
         database:
             enable: false
-            dsn: jdbc:mysql://localhost:3306/minecraft
+            dsn: jdbc:mysql://localhost/worldguard
             user: root
             pass: ''
             table: blacklist_events

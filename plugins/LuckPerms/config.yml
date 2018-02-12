@@ -270,7 +270,7 @@ data:
 
   database: minecraft
   username: root
-  password: ''
+  password: 
 
   # These settings apply to the MySQL connection pool.
   # The default values will be suitable for the majority of users.
@@ -363,7 +363,7 @@ broadcast-received-log-entries: true
 redis:
   enabled: false
   address: localhost
-  password: ''
+  password: 
 
 
 
